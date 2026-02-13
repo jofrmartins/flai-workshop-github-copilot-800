@@ -1,0 +1,304 @@
+/* COMBINA Banner - NOS Inspired Design */
+
+.combina-banner {
+  position: relative;
+  background: linear-gradient(135deg, #8B7355 0%, #6B5444 50%, #4A3933 100%);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.combina-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 255, 255, 0.03) 35px,
+      rgba(255, 255, 255, 0.03) 70px
+    );
+  pointer-events: none;
+}
+
+.combina-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 3rem;
+}
+
+.combina-text {
+  flex: 1;
+  color: white;
+}
+
+.combina-headline {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.combina-box-group {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.combina-box {
+  display: inline-block;
+  background-color: white;
+  color: #1A1A1A;
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 2.8rem;
+  letter-spacing: 0.05em;
+}
+
+.combina-subheadline {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.combina-partners {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.partner-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.partner-logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nos-logo {
+  background-color: #1A1A1A;
+  color: white;
+  position: relative;
+}
+
+.nos-logo::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #00A9E0;
+  border-radius: 50%;
+  box-shadow: 
+    0 8px 0 #00A9E0,
+    0 16px 0 #00A9E0;
+}
+
+.galp-logo {
+  color: #E87722;
+  font-weight: 900;
+}
+
+.continente-logo {
+  color: #E30613;
+  font-weight: 900;
+}
+
+.plus-sign {
+  color: #666;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.combina-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  color: white;
+}
+
+.combina-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-combina {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn-primary-combina {
+  background-color: white;
+  color: #1A1A1A;
+}
+
+.btn-primary-combina:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary-combina {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary-combina:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.combina-image-placeholder {
+  flex: 0 0 300px;
+  height: 350px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.image-text {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.fitness-icon {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.image-text p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .combina-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .combina-text {
+    align-items: center;
+  }
+  
+  .combina-headline,
+  .combina-subheadline {
+    font-size: 2.2rem;
+  }
+  
+  .combina-box {
+    font-size: 2rem;
+  }
+  
+  .combina-description {
+    max-width: 100%;
+  }
+  
+  .combina-buttons {
+    justify-content: center;
+  }
+  
+  .combina-image-placeholder {
+    flex: 0 0 250px;
+    height: 250px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .partner-logo-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .combina-banner {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+  
+  .combina-headline,
+  .combina-subheadline {
+    font-size: 1.5rem;
+  }
+  
+  .combina-box {
+    font-size: 1.3rem;
+    padding: 0.2rem 0.7rem;
+  }
+  
+  .partner-logo {
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .combina-description {
+    font-size: 1rem;
+  }
+  
+  .btn-combina {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .fitness-icon {
+    font-size: 3rem;
+  }
+}

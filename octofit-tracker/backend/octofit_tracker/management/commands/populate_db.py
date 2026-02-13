@@ -53,6 +53,7 @@ class Command(BaseCommand):
             # Team Marvel
             {
                 '_id': 'user_ironman',
+                'username': 'ironman',
                 'name': 'Tony Stark',
                 'email': 'ironman@avengers.com',
                 'hero_name': 'Iron Man',
@@ -62,6 +63,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_spiderman',
+                'username': 'spiderman',
                 'name': 'Peter Parker',
                 'email': 'spiderman@avengers.com',
                 'hero_name': 'Spider-Man',
@@ -71,6 +73,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_blackwidow',
+                'username': 'blackwidow',
                 'name': 'Natasha Romanoff',
                 'email': 'blackwidow@avengers.com',
                 'hero_name': 'Black Widow',
@@ -80,6 +83,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_captainamerica',
+                'username': 'cap',
                 'name': 'Steve Rogers',
                 'email': 'cap@avengers.com',
                 'hero_name': 'Captain America',
@@ -89,6 +93,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_thor',
+                'username': 'thor',
                 'name': 'Thor Odinson',
                 'email': 'thor@avengers.com',
                 'hero_name': 'Thor',
@@ -99,6 +104,7 @@ class Command(BaseCommand):
             # Team DC
             {
                 '_id': 'user_batman',
+                'username': 'batman',
                 'name': 'Bruce Wayne',
                 'email': 'batman@justiceleague.com',
                 'hero_name': 'Batman',
@@ -108,6 +114,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_superman',
+                'username': 'superman',
                 'name': 'Clark Kent',
                 'email': 'superman@justiceleague.com',
                 'hero_name': 'Superman',
@@ -117,6 +124,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_wonderwoman',
+                'username': 'wonderwoman',
                 'name': 'Diana Prince',
                 'email': 'wonderwoman@justiceleague.com',
                 'hero_name': 'Wonder Woman',
@@ -126,6 +134,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_flash',
+                'username': 'flash',
                 'name': 'Barry Allen',
                 'email': 'flash@justiceleague.com',
                 'hero_name': 'The Flash',
@@ -135,6 +144,7 @@ class Command(BaseCommand):
             },
             {
                 '_id': 'user_aquaman',
+                'username': 'aquaman',
                 'name': 'Arthur Curry',
                 'email': 'aquaman@justiceleague.com',
                 'hero_name': 'Aquaman',

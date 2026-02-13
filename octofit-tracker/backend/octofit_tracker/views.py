@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import Sum
+from pymongo import MongoClient
 from .models import User, Team, Activity, Leaderboard, Workout
 from .serializers import (
     UserSerializer, TeamSerializer, ActivitySerializer,
@@ -16,6 +17,45 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def list(self, request):
+        """Custom list method to include team_name and date_joined from MongoDB"""
+        # Connect to MongoDB to get additional fields
+        client = MongoClient('localhost', 27017)
+        db = client['octofit_db']
+        
+        # Get users from MongoDB
+        users_data = []
+        for user_doc in db.users.find():
+            # Get team name
+            team_name = None
+            if user_doc.get('team_id'):
+                team = db.teams.find_one({'_id': user_doc['team_id']})
+                if team:
+                    team_name = team.get('name')
+            
+            user_data = {
+                'id': user_doc.get('_id'),
+                'username': user_doc.get('username'),
+                'email': user_doc.get('email'),
+                'first_name': user_doc.get('first_name'),
+                'last_name': user_doc.get('last_name'),
+                'age': user_doc.get('age'),
+                'fitness_level': user_doc.get('fitness_level'),
+                'total_points': user_doc.get('total_points', 0),
+                'created_at': user_doc.get('created_at'),
+                'updated_at': user_doc.get('updated_at'),
+                'team_name': team_name,
+                'date_joined': user_doc.get('joined_at'),
+            }
+            users_data.append(user_data)
+        
+        client.close()
+        
+        # Sort by total_points descending
+        users_data.sort(key=lambda x: x.get('total_points', 0), reverse=True)
+        
+        return Response(users_data)
 
     @action(detail=True, methods=['get'])
     def activities(self, request, pk=None):
@@ -112,6 +152,42 @@ class ActivityViewSet(viewsets.ModelViewSet):
     """
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
+
+    def list(self, request):
+        """Custom list method to include user_name from MongoDB"""
+        # Connect to MongoDB to get user names
+        client = MongoClient('localhost', 27017)
+        db = client['octofit_db']
+        
+        # Get activities from MongoDB
+        activities_data = []
+        for activity_doc in db.activities.find().sort('date', -1):
+            # Get user name
+            user_name = None
+            if activity_doc.get('user_id'):
+                user = db.users.find_one({'_id': activity_doc['user_id']})
+                if user:
+                    user_name = user.get('username')
+            
+            activity_data = {
+                'id': str(activity_doc.get('_id')),
+                'user_id': activity_doc.get('user_id'),
+                'user_name': user_name,
+                'activity_type': activity_doc.get('activity_type'),
+                'duration': activity_doc.get('duration'),
+                'distance': activity_doc.get('distance'),
+                'calories_burned': activity_doc.get('calories_burned'),
+                'points_earned': activity_doc.get('points_earned'),
+                'notes': activity_doc.get('notes'),
+                'date': activity_doc.get('date').isoformat() if activity_doc.get('date') else None,
+                'created_at': activity_doc.get('created_at'),
+                'updated_at': activity_doc.get('updated_at'),
+            }
+            activities_data.append(activity_data)
+        
+        client.close()
+        
+        return Response(activities_data)
 
     def perform_create(self, serializer):
         """Update user points when activity is created"""

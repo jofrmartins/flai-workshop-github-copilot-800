@@ -1,0 +1,458 @@
+/* OctoFit Tracker - NOS Inspired Design */
+
+/* CSS Variables - NOS Color Palette */
+:root {
+  --nos-blue: #00A9E0;
+  --nos-dark-blue: #0066CC;
+  --nos-black: #1A1A1A;
+  --nos-dark-gray: #333333;
+  --nos-gray: #666666;
+  --nos-light-gray: #E5E5E5;
+  --nos-bg-gray: #F5F5F5;
+  --nos-white: #FFFFFF;
+  --nos-success: #00C853;
+  --nos-warning: #FFA726;
+  --nos-danger: #EF5350;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar - NOS Style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nos-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nos-blue);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nos-dark-blue);
+}
+
+/* Global Layout */
+.App {
+  min-height: 100vh;
+  background-color: var(--nos-bg-gray);
+  color: var(--nos-dark-gray);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  height: 40px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+/* Navigation - NOS Style */
+.navbar {
+  background-color: var(--nos-black) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 2rem;
+  border-bottom: 3px solid var(--nos-blue);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: var(--nos-white) !important;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.9;
+}
+
+.nav-link {
+  color: var(--nos-white) !important;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 4px;
+  margin: 0 0.25rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  background-color: var(--nos-blue);
+  color: var(--nos-white) !important;
+}
+
+/* Mobile Toggle Button */
+.navbar-toggler {
+  border: 1px solid var(--nos-blue);
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background-color: var(--nos-blue);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 169, 224, 0.25);
+}
+
+/* Page Headers */
+h1, h2 {
+  color: var(--nos-black);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 3px solid var(--nos-blue);
+  padding-bottom: 0.75rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+/* Cards - NOS Clean Design */
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+  background-color: var(--nos-white);
+  overflow: hidden;
+  border-left: 4px solid var(--nos-blue);
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.card-title {
+  color: var(--nos-black);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.3px;
+}
+
+/* Tables - NOS Clean Style */
+.table {
+  background-color: var(--nos-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.table thead {
+  background-color: var(--nos-black);
+  color: var(--nos-white);
+}
+
+.table thead th {
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.25rem;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--nos-light-gray);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(0, 169, 224, 0.05);
+}
+
+.table tbody td {
+  vertical-align: middle;
+  padding: 1rem 1.25rem;
+  color: var(--nos-dark-gray);
+  font-weight: 400;
+}
+
+/* Badges - NOS Style */
+.badge {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-primary {
+  background-color: var(--nos-blue);
+  color: var(--nos-white);
+}
+
+.badge-success {
+  background-color: var(--nos-success);
+  color: var(--nos-white);
+}
+
+.badge-info {
+  background-color: var(--nos-dark-blue);
+  color: var(--nos-white);
+}
+
+/* Buttons - NOS Modern Design */
+.btn {
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  background-color: var(--nos-blue);
+  color: var(--nos-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--nos-dark-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 169, 224, 0.3);
+}
+
+.btn-success {
+  background-color: var(--nos-success);
+  color: var(--nos-white);
+}
+
+.btn-success:hover {
+  background-color: #00A038;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
+}
+
+.btn-info {
+  background-color: var(--nos-dark-blue);
+  color: var(--nos-white);
+}
+
+.btn-info:hover {
+  background-color: #0052A3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* Loading Spinner - NOS Style */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3rem;
+  color: var(--nos-blue);
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+/* Alerts - NOS Clean Design */
+.alert {
+  border-radius: 4px;
+  border: none;
+  border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: var(--nos-white);
+}
+
+.alert-info {
+  background-color: #E8F4FA;
+  color: var(--nos-dark-blue);
+  border-left-color: var(--nos-blue);
+}
+
+.alert-heading {
+  color: var(--nos-black);
+  font-weight: 700;
+}
+
+.alert-success {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+  border-left-color: var(--nos-success);
+}
+
+.alert-warning {
+  background-color: #FFF3E0;
+  color: #E65100;
+  border-left-color: var(--nos-warning);
+}
+
+.alert-danger {
+  background-color: #FFEBEE;
+  color: #C62828;
+  border-left-color: var(--nos-danger);
+}
+
+/* Info Text */
+.text-muted {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: var(--nos-gray) !important;
+}
+
+/* Lead Text */
+.lead {
+  font-size: 1.15rem;
+  color: var(--nos-dark-gray) !important;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Container Spacing */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 1200px;
+}
+
+/* Card Emoji Display */
+.display-4 {
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .display-4 {
+  transform: scale(1.1);
+}
+
+/* Welcome Section */
+.text-center h1 {
+  color: var(--nos-black);
+}
+
+/* Rank Badges in Leaderboard */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rank-1 {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: var(--nos-white);
+}
+
+.rank-2 {
+  background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
+  color: var(--nos-white);
+}
+
+.rank-3 {
+  background: linear-gradient(135deg, #CD7F32, #A0522D);
+  color: var(--nos-white);
+}
+
+/* Card Body Padding */
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Page Title Section */
+.page-title {
+  background-color: var(--nos-white);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--nos-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Additional NOS-inspired elements */
+.section-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--nos-blue) 0%, transparent 100%);
+  margin: 2rem 0;
+  border: none;
+}
+
+/* Stats Cards */
+.stats-card {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--nos-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-top: 3px solid var(--nos-blue);
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 169, 224, 0.2);
+}
+
+.stats-card h3 {
+  color: var(--nos-blue);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stats-card p {
+  color: var(--nos-gray);
+  font-size: 0.9rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
